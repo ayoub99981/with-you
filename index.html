@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>عناق لخديجة 🤍</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd6e0, #f7a1b2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    direction: rtl;
+}
+
+.container {
+    text-align: center;
+    z-index: 2;
+    color: #5a1f2b;
+}
+
+svg {
+    width: 260px;
+    margin-bottom: 20px;
+}
+
+.hand {
+    transform-origin: center;
+    transition: transform 1.5s ease-in-out;
+}
+
+.hug .left {
+    transform: translateX(40px) rotate(5deg);
+}
+
+.hug .right {
+    transform: translateX(-40px) rotate(-5deg);
+}
+
+.message {
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 22px;
+    line-height: 1.9;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.heart {
+    position: absolute;
+    font-size: 22px;
+    color: #fff;
+    animation: float 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    50% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <!-- أيدٍ واقعية SVG -->
+    <svg id="hands" viewBox="0 0 300 150">
+        <path class="hand left" fill="#f1c27d"
+              d="M40 80 Q20 50 40 30 Q70 10 90 40 L110 80 Z"/>
+        <path class="hand right" fill="#f1c27d"
+              d="M260 80 Q280 50 260 30 Q230 10 210 40 L190 80 Z"/>
+    </svg>
+
+    <button onclick="hug()">اضغطي هنا للعناق 🤍</button>
+
+    <div class="message">
+        خديجة 🤍  
+        <br>
+        أنا معكِ في كل الأوقات  
+        <br>
+        لن أغيب عنكِ لحظة ولا يوم  
+        <br>
+        أعدكِ ما دمتُ حيًا  
+        <br>
+        لن تكوني وحدكِ أبدًا
+    </div>
+</div>
+
+<script>
+function hug() {
+    document.getElementById("hands").classList.add("hug");
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
